@@ -1,0 +1,107 @@
+mysql_server:
+# see spec/mysql_server/mysql_server_spec.rb
+    :listen_port: 3306
+    :version: 5.5.37
+    :user: mysql
+    :innodb_buffer_pool_size: 24G
+    :innodb_log_file_size: 600M
+    :innodb_log_files_in_group: 3
+php:
+# see spec/php/php_spec.rb
+    :version: 5.5.12
+    :max_execution_time: 0
+    :memory_limit: 128M
+    :post_max_size: 512M
+    :upload_max_filesize: 2M
+    :max_input_time: -1
+    :timezone: Asia/Tokyo
+    :libmcrypt_version: 2.5.8
+os:
+# see spec/os/os_spec.rb
+## /home/src directory username
+    :homesrc_user: user
+## should install packages
+    :packages: 
+      - lm_sensors
+      - net-snmp-libs
+      - net-snmp-devel
+      - net-snmp
+      - net-snmp-utils
+      - libevent-devel
+      - ntp
+      - bind-utils
+      - sysstat
+      - lsof
+      - gcc
+      - gcc-c++
+      - make
+      - zip
+      - unzip
+      - lzop
+      - vim-enhanced
+      - curl
+      - wget
+      - git
+      - libxml2-devel
+      - libjpeg-turbo-devel
+      - libpng-devel
+      - libcurl-devel
+      - gd-devel
+      - readline-devel
+#     - etc ...
+## disable service names
+    :disable_services:
+      - acpid
+      - avahi-daemon
+      - bluetooth
+      - cups
+      - gpm
+      - hiddmcstrans
+      - mdmonitor
+      - messagebus
+      - netfs
+      - nfslock
+      - pcscd
+      - restorecond
+      - rpcbind
+      - rpcgssd
+      - rpcidmapd
+      - xfs
+      - xinetd
+      - yum-updatesd
+      - ip6tables
+      - iptables
+#     - etc ...
+    :resolv:
+      - 192.168.0.1
+      - 192.168.0.2
+network:
+# gateway ip addr
+    :gw_addr: 192.168.0.254
+# gateway ip interface name
+    :gw_addr_device: bond0
+# reachable tcp check, hostname and port number.
+    :reachable: 
+      - host: localhost
+        port: 80
+      - host: www.google.co.jp
+        port: 80
+#     - host: hostname
+#       port: 22
+zabbix-agent:
+    :version: 2.2.3
+    :logfile:
+      - filename: /var/log/zabbix/zabbix_agentd.log
+        user: zabbix
+# application specific settings
+app:
+    :users:
+      - hoge
+      - taro_yamada
+    :directories:
+      - user: hoge
+        directory: /home/hoge
+        mode: 755
+      - user: simainte
+        directory: /home/simainte
+        mode: 700

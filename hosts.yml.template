@@ -1,0 +1,7 @@
+hostname1:
+  :roles:
+     - os
+hostname2:
+  :roles:
+     - os
+     - network
