@@ -12,7 +12,7 @@
 
 # インストール
 
-```
+```sh
 $ git clone git@github.com:dwango/serverspecd.git
 $ bundle
 ```
@@ -59,7 +59,7 @@ $ bundle
 * hosts.ymlにhostsとroleの組み合わせを書きます
 * hosts.ymlの例
 
-```
+```yaml
 nico:
   :roles:
     - os
@@ -76,7 +76,7 @@ maki:
 * spec名のディレクトリのspecに対応する設定を書きます
 * :で始まっている理由は、参考にしたコードに引っ張られました
 
-```
+```yaml
 mysql_server:
     :listen_port: 3306
     :version: 5.5.37
@@ -102,14 +102,14 @@ network:
 
 hogeというroleを作ってみましょう。まずはspecファイルを作ります。
 
-```
-mkdir spec/hoge
-touch spec/hoge/hoge_spec.rb
+```sh
+$ mkdir spec/hoge
+$ touch spec/hoge/hoge_spec.rb
 ```
 
 hosts.ymlのrolesに追加します。
 
-```
+```yaml
 nico:
   :roles:
     - os
@@ -124,7 +124,7 @@ maki:
 
 * attributes.ymlのspecに対応した値を読み出すためにproperties = property['spec']が必要です
 
-```
+```sh
 $ cat spec/network/network_spec.rb
 require 'spec_helper'
 properties = property['network']
@@ -140,22 +140,22 @@ end
 
 * 実行時の一覧
 
-```
+```sh
 $ rake -T
-rake serverspec            # Run serverspec to all hosts    
+rake serverspec            # Run serverspec to all hosts
 rake serverspec:hostname1  # Run serverspec to hostname1
 rake serverspec:hostname2  # Run serverspec to hostname2
 ```
 
 * 特定のホストに対してテスト
 
-```
+```sh
 $ rake serverspec:hostname1
 ```
 
 * デバッグ情報も表示
 
-```
+```sh
 $ rake serverspec:hostname1 --trace SPEC_OPTS="-fd"
 ```
 
