@@ -164,7 +164,7 @@ $ rake serverspec:hostname1 --trace SPEC_OPTS="-fd"
 
 ## TODO
 
-* specファイルに propaties = propaties['spec']と書かないといけないのを何とかしたい
+* specファイルに properties = property['spec']と書かないといけないのを何とかしたい
 * rake serverspecして全てのサーバをチェックしたとき、一つ目のサーバのチェックが失敗すると、それ以降のサーバのチェックが走りません。何とかしたい
 
 ## 参考
