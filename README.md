@@ -1,12 +1,10 @@
 # これはなに？
 
 * 解決する問題
- * [Serverspec](http://http://serverspec.org/)はデフォルトでは単一のホストしかチェックできなかった件
-
+  * [Serverspec](http://http://serverspec.org/)はデフォルトでは単一のホストしかチェックできなかった件
 * 解決した内容
- * 複数のホストとテストするattributeを定義すると、ホストの状態をチェック出来るServerspecのRakefileを作りました
- * hosts.ymlにhostsとroleの組み合わせを書くとテストしてくれます
-
+  * 複数のホストとテストするattributeを定義すると、ホストの状態をチェック出来るServerspecのRakefileを作りました
+  * hosts.ymlにhostsとroleの組み合わせを書くとテストしてくれます
 * なお、UN*X用です。そしてsshでテストを実行します
 
 
