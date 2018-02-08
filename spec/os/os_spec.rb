@@ -13,7 +13,7 @@ end
 
 # アスタリスク "*" が左端に表示され参照中であること
 describe command('ntpq -pn') do
-  it { should return_stdout /^\*\d/}
+  its(:stdout) { should match /^\*\d/ }
 end
 
 # packages install check
@@ -26,7 +26,7 @@ end
 # disable service check
 properties[:disable_services].map do |a|
   describe command('service ' + a + ' status') do
-    it { should_not return_exit_status 0 }
+    its(:exit_status) { should_not eq 0 }
   end
 end
 
@@ -38,7 +38,7 @@ end
 # resolv.conf
 properties[:resolv].map do |s|
   describe command('cat /etc/resolv.conf') do
-    it { should return_stdout s }
+    it { should eq s }
   end
 end
 
@@ -59,7 +59,7 @@ end
 
 # hostname
 describe command('hostname') do
-  it { should return_stdout(p[:hostname]) }
+  its(:stdout) { should eq ENV['TARGET_HOST'] }
 end
 
 # selinux
@@ -154,4 +154,3 @@ describe file('/home/src') do
   it { should be_owned_by 'root' }
   it { should be_mode 755 }
 end
-

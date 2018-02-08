@@ -11,8 +11,8 @@ end
 
 # network
 describe default_gateway do
-  its(properties[:ipaddress]) { should eq p['gw_addr'] }
-  its(properties[:interface]) { should eq p['gw_addr_device'] }
+  its(:ipaddress) { should eq properties[:gw_addr] }
+  its(:interface) { should eq properties[:gw_addr_device] }
 end
 
 describe service('network') do
