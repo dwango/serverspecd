@@ -59,7 +59,7 @@ end
 
 # hostname
 describe command('hostname') do
-  its(:stdout) { should eq p[:hostname] }
+  its(:stdout) { should eq ENV['TARGET_HOST'] }
 end
 
 # selinux
