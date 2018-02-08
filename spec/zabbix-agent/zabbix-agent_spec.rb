@@ -11,5 +11,5 @@ describe service('zabbix-agent') do
 end
 
 describe command('zabbix_agentd -V') do
-  it { should return_stdout /#{properties[:version]}/ }
+  its(:stdout) { should match /#{properties[:version]}/ }
 end
