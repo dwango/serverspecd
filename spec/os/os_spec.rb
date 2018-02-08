@@ -26,7 +26,7 @@ end
 # disable service check
 properties[:disable_services].map do |a|
   describe command('service ' + a + ' status') do
-    it { should_not return_exit_status 0 }
+    its(:exit_status) { should_not eq 0 }
   end
 end
 
